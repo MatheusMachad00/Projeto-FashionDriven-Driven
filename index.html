@@ -30,15 +30,15 @@
                 <p>Escolha o modelo</p>
             </div>
             <div class="options1">
-                <div class="itens background borderColor">
+                <div class="itens background" onclick="changeBorderOption1(this, 't-shirt')">
                     <img src="img/tshirt.png" alt="t-shirt">
                     <p>T-shirt</p>
                 </div>
-                <div class="itens background borderColor">
+                <div class="itens background" onclick="changeBorderOption1(this, 'top-tank')">
                     <img src="img/Camiseta.png" alt="camiseta">
                     <p>Camiseta</p>
                 </div>
-                <div class="itens background borderColor">
+                <div class="itens background" onclick="changeBorderOption1(this, 'long')">
                     <img src="img/Mangalonga.png" alt="Mangalonga">
                     <p>Manga longa</p>
                 </div>
@@ -47,15 +47,15 @@
                 <p>Escolha a gola</p>
             </div>
             <div class="options2">
-                <div class="itens background borderColor">
+                <div class="itens background" onclick="changeBorderOption2(this, 'v-neck')">
                     <img src="img/GolaV.png" alt="GolaV">
                     <p>Gola V</p>
                 </div>
-                <div class="itens background borderColor">
+                <div class="itens background" onclick="changeBorderOption2(this, 'round')">
                     <img src="img/GolaRedonda.png" alt="GolaRedonda">
                     <p>Gola redonda</p>
                 </div>
-                <div class="itens background borderColor">
+                <div class="itens background" onclick="changeBorderOption2(this, 'polo')">
                     <img src="img/GolaPolo.png" alt="GolaPolo">
                     <p>Gola polo</p>
                 </div>
@@ -64,15 +64,15 @@
                 <p>Escolha o tecido</p>
             </div>
             <div class="options3">
-                <div class="itens background silk borderColor">
+                <div class="itens background silk" onclick="changeBorderOption3(this, 'silk')">
                     <img src="img/Seda.png" alt="Seda">
                     <p>Seda</p>
                 </div>
-                <div class="itens background borderColor">
+                <div class="itens background" onclick="changeBorderOption3(this, 'cotton')">
                     <img src="img/Algodão.png" alt="Algodão">
                     <p>Algodão</p>
                 </div>
-                <div class="itens background borderColor">
+                <div class="itens background" onclick="changeBorderOption3(this, 'polyester')">
                     <img src="img/Poliester.png" alt="Poliester">
                     <p>Poliéster</p>
                 </div>
@@ -80,7 +80,7 @@
             <div class="createOrder">
                 <p>Imagem de referência</p>
                 <input type="text" placeholder="Insira o link">
-                <button class="finalizeOrder">Confirmar pedido</button>
+                <button class="buttonClass" onclick="sendOrder()" disabled>Confirmar pedido</button>
             </div>
         </section>
 

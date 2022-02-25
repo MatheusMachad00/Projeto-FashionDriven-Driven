@@ -180,14 +180,12 @@ footer {
 .containerFooter {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-around; */
     gap: 16px;
     max-width: 872px;
     
     overflow-x: auto;
     overflow-y: hidden;
-    margin-right: 200px; /* margin-left: 118px; */
-
+    margin-right: 200px;
 }
 
 .containerFooter p {
@@ -196,7 +194,7 @@ footer {
 }
 
 .lastOrders {
-    background-color: #FFFFFF; /*  #FFFFFF */
+    background-color: #FFFFFF;
     border-radius: 4px;
 }
 
@@ -207,6 +205,7 @@ footer {
 
 .lastOrders p {
     font-size: 20px;
+    margin-bottom: 15px;
 }
 
 .lastOrders strong {
