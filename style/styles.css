@@ -179,7 +179,7 @@ footer {
 
 .containerFooter {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     gap: 16px;
     max-width: 872px;
     
