@@ -79,8 +79,8 @@
             </div>
             <div class="createOrder">
                 <p>Imagem de referência</p>
-                <input type="text" placeholder="Insira o link">
-                <button class="buttonClass" onclick="sendOrder()" disabled>Confirmar pedido</button>
+                <input id="shirtIMG" type="text" placeholder="Insira o link">
+                <button id="myBtn" class="buttonClass" onclick="sendOrder()" disabled = true>Confirmar pedido</button>
             </div>
         </section>
 
@@ -136,6 +136,7 @@
 
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="script/scrpit.js"></script>
 
 </html>
