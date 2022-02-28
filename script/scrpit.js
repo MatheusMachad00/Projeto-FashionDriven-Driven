@@ -4,12 +4,13 @@ let obj = {
     model: '',
     neck: '',
     material: '',
-    image: '', //https://http2.mlstatic.com/D_NQ_NP_902665-MLB31089875573_062019-O.jpg para testes
+    image: '',
     owner: '',
     author: ''
 }
-let o1, o2, o3;
+let o1, o2, o3, img;
 let userName;
+let arrayServer;
 
 function yourName() {
     let name = prompt("Por favor, digite seu nome: ");
@@ -55,27 +56,25 @@ function changeBorderOption3(option3, material) {
     turnOnButton();
 }
 
-//document.getElementById("shirtIMG").onchange = () => {console.log("aa")}; //onchange -> pesquisar
-
-//let img = document.querySelector("input").value;
-
 function turnOnButton() {
     const buttonOn = document.getElementById("myBtn");
-    if ((o1 && o2 && o3) && validURL(document.getElementById("shirtIMG").value)) {    // && validURL(document.getElementById("shirtIMG").value)
-        //console.log(validURL(document.getElementById("shirtIMG")));
+    if (o1 && o2 && o3 && validURL(document.getElementById("shirtIMG").value)) {
         buttonOn.disabled = false;
         buttonOn.classList.add("finalizeOrder");
-        obj.image = document.querySelector("input").value; //desabilitar essa linha para funcionar o post
     } else {
         buttonOn.disabled = true;
         buttonOn.classList.remove("finalizeOrder");
     }
 }
 
-function validURL(url) {
-    console.log(url);
-    if (url.length < 1) return false;
+function checkURL (){
+    if (validURL(document.getElementById("shirtIMG").value)){
+        obj.image = document.querySelector("input").value;
+    }
+    turnOnButton();
+}
 
+function validURL(url) {
     var regexExpression = /^(ftp|http|https|chrome|:\/\/|\.|@){2,}(localhost|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\S*:\w*@)*([a-zA-Z]|(\d{1,3}|\.){7}){1,}(\w|\.{2,}|\.[a-zA-Z]{2,3}|\/|\?|&|:\d|@|=|\/|\(.*\)|#|-|%)*$/gum
     return regexExpression.test(url);
 }
@@ -115,6 +114,8 @@ function getShirtsFromServer() {
 }
 
 function shirtsFromServer(answer) {
+    arrayServer = answer.data; //pegando o array de objetos do servidor e botando numa variável.
+    //console.log(arrayServer);
     const lastOrdersFromServer = document.querySelector(".containerFooter");
     lastOrdersFromServer.innerHTML += "";
     for (i = 0; i < answer.data.length; i++) {
@@ -127,5 +128,5 @@ function shirtsFromServer(answer) {
 }
 
 /* function buyLastOrder (){
-
+    
 } */
