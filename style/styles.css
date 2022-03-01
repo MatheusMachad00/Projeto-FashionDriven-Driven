@@ -179,7 +179,7 @@ footer {
 
 .containerFooter {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     gap: 16px;
     max-width: 872px;
     
@@ -221,4 +221,8 @@ footer {
 
 .finalizeOrder {
     background-color: #404EED;
+}
+
+.lastOrders:hover {
+    cursor: pointer;
 }

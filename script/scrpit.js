@@ -10,7 +10,7 @@ let obj = {
 }
 let o1, o2, o3, img;
 let userName;
-let arrayServer;
+let arrayServer = [];
 
 function yourName() {
     let name = prompt("Por favor, digite seu nome: ");
@@ -87,7 +87,9 @@ function sendOrder() {
 
 function orderOk(response) {
     alert("Seu pedido foi confirmado! :)");
+    //removeHTML();
     createdOrderHTML();
+    //getShirtsFromServer();
     console.log(response);
 }
 
@@ -113,20 +115,51 @@ function getShirtsFromServer() {
     promise.catch();
 }
 
-function shirtsFromServer(answer) {
-    arrayServer = answer.data; //pegando o array de objetos do servidor e botando numa variável.
-    //console.log(arrayServer);
+function shirtsFromServer(answer) {   
+    console.log(answer.data);
+    console.log(answer.data.reverse());
+    answer.data.reverse();
     const lastOrdersFromServer = document.querySelector(".containerFooter");
     lastOrdersFromServer.innerHTML += "";
     for (i = 0; i < answer.data.length; i++) {
-        lastOrdersFromServer.innerHTML += `<div class="lastOrders">
+        lastOrdersFromServer.innerHTML += `<div class="lastOrders" onclick="buyLastOrder(${[i]})"> 
         <img src="${answer.data[i].image}}" alt="${answer.data[i].image}">
         <p><strong>Criador: </strong>${answer.data[i].owner}</p>
     </div>
-        `;
+        `; //onclick="buyLastOrder(${arrayServer[i]})"
+    }
+    arrayServer = [...answer.data];
+}
+
+/* function removeHTML() {
+    const lastOrders = document.querySelectorAll(".lastOrders");
+    lastOrders.parentNode.removeChild(lastOrders);
+} */
+
+let objLastOrders = {
+    model: '',
+    neck: '',
+    material: '',
+    image: '',
+    owner: '',
+    author: ''
+};
+
+function buyLastOrder (j){
+    objLastOrders.model = arrayServer[j].model;
+    objLastOrders.neck = arrayServer[j].neck;
+    objLastOrders.material = arrayServer[j].material;
+    objLastOrders.image = arrayServer[j].image;
+    objLastOrders.author = arrayServer[j].owner;
+    objLastOrders.owner = userName;
+    let confirmOrder = confirm("Deseja pedir esse produto?");
+    if (confirmOrder){
+        lastOrderPurchase();
     }
 }
 
-/* function buyLastOrder (){
-    
-} */
+function lastOrderPurchase() {
+    const promise = axios.post(`${LINK_API}`, objLastOrders);
+    promise.then(orderOk);
+    promise.catch(orderNotOk);
+}
