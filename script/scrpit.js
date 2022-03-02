@@ -87,16 +87,12 @@ function sendOrder() {
 
 function orderOk(response) {
     alert("Seu pedido foi confirmado! :)");
-    //removeHTML();
     createdOrderHTML();
-    //getShirtsFromServer();
-    console.log(response);
+    getShirtsFromServer();
 }
 
 function orderNotOk(response) {
     alert("Ops, não conseguimos processar sua encomenda. :(");
-    console.log(response);
-    console.log(obj);
 }
 
 function createdOrderHTML() {
@@ -116,25 +112,19 @@ function getShirtsFromServer() {
 }
 
 function shirtsFromServer(answer) {   
-    console.log(answer.data);
     console.log(answer.data.reverse());
     answer.data.reverse();
     const lastOrdersFromServer = document.querySelector(".containerFooter");
-    lastOrdersFromServer.innerHTML += "";
+    lastOrdersFromServer.innerHTML = "";
     for (i = 0; i < answer.data.length; i++) {
         lastOrdersFromServer.innerHTML += `<div class="lastOrders" onclick="buyLastOrder(${[i]})"> 
         <img src="${answer.data[i].image}}" alt="${answer.data[i].image}">
-        <p><strong>Criador: </strong>${answer.data[i].owner}</p>
+        <p><strong>Criador: </strong>${answer.data[i].owner}</p> 
     </div>
-        `; //onclick="buyLastOrder(${arrayServer[i]})"
+        `;
     }
     arrayServer = [...answer.data];
 }
-
-/* function removeHTML() {
-    const lastOrders = document.querySelectorAll(".lastOrders");
-    lastOrders.parentNode.removeChild(lastOrders);
-} */
 
 let objLastOrders = {
     model: '',
