@@ -25,7 +25,7 @@ function yourName() {
 window.onload = yourName;
 
 function changeBorderOption1(option1, type) {
-    turnOffBorder('option1');
+    turnOffBorder("options1");
     option1.classList.add("borderColor");
     obj.model = type;
     o1 = true;
@@ -33,7 +33,7 @@ function changeBorderOption1(option1, type) {
 }
 
 function changeBorderOption2(option2, collar) {
-    turnOffBorder('option2');
+    turnOffBorder("options2");
     option2.classList.add("borderColor");
     obj.neck = collar;
     o2 = true;
@@ -41,7 +41,7 @@ function changeBorderOption2(option2, collar) {
 }
 
 function changeBorderOption3(option3, material) {
-    turnOffBorder('option3');
+    turnOffBorder("options3");
     option3.classList.add("borderColor");
     obj.material = material;
     o3 = true;
