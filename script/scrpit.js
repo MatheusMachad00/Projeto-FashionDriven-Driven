@@ -12,6 +12,8 @@ let o1, o2, o3, img;
 let userName;
 let arrayServer = [];
 
+/* Funções */
+
 function yourName() {
     let name = prompt("Por favor, digite seu nome: ");
     userName = name;
@@ -22,12 +24,8 @@ function yourName() {
 
 window.onload = yourName;
 
-
 function changeBorderOption1(option1, type) {
-    const typeSelected = document.querySelector(".options1 .borderColor");
-    if (typeSelected !== null) {
-        typeSelected.classList.remove("borderColor")
-    }
+    turnOfffBorder('option1');
     option1.classList.add("borderColor");
     obj.model = type;
     o1 = true;
@@ -35,10 +33,7 @@ function changeBorderOption1(option1, type) {
 }
 
 function changeBorderOption2(option2, collar) {
-    const collarSelected = document.querySelector(".options2 .borderColor");
-    if (collarSelected !== null) {
-        collarSelected.classList.remove("borderColor")
-    }
+    turnOfffBorder('option2');
     option2.classList.add("borderColor");
     obj.neck = collar;
     o2 = true;
@@ -46,14 +41,18 @@ function changeBorderOption2(option2, collar) {
 }
 
 function changeBorderOption3(option3, material) {
-    const materialSelected = document.querySelector(".options3 .borderColor");
-    if (materialSelected !== null) {
-        materialSelected.classList.remove("borderColor")
-    }
+    turnOfffBorder('option3');
     option3.classList.add("borderColor");
     obj.material = material;
     o3 = true;
     turnOnButton();
+}
+
+function turnOfffBorder(option){
+    const optionSelected = document.querySelector(`.${option} .borderColor`);
+    if (optionSelected !== null) {
+        optionSelected.classList.remove("borderColor")
+    }
 }
 
 function turnOnButton() {

@@ -226,3 +226,11 @@ footer {
 .lastOrders:hover {
     cursor: pointer;
 }
+
+.itens:hover {
+    cursor: pointer;
+}
+
+button:hover{
+    cursor: pointer;
+}
